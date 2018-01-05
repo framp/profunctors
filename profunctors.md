@@ -212,6 +212,7 @@ assert.deepEqual(
 
 ### a Profunctor is a Bifunctor contravariant in the first argument`
 ### a Profunctor is a container with a `.promap()`
+#### can a function be a Profunctor?
 
 ```
 const Func = (f) => ({
@@ -228,6 +229,18 @@ assert.deepEqual(Func(a => a*2)
 
 ---
 
+### Summary 
+
+```
+f(a)               ->   f(a)
+
+map(fn)            ->   fn(f(a))
+
+contramap(fn)      ->   f(fn(a))
+
+promap(fnCn, fnCo) ->   fnCo(f(fnCn(a)))
+```
+---
 
 # Fin.
 
