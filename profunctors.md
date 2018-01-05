@@ -32,7 +32,7 @@ assert.deepEqual(
 const Just = (a) => ({
   value: a,
   // map :: Maybe a -> (a -> b) -> Maybe b
-  map: (fn) => List(a.map(fn))
+  map: (fn) => Just(fn(a))
 })
 const Nothing = {
   map: (fn) => Nothing
@@ -59,9 +59,6 @@ const Func = (f) => ({
   // map :: Func a -> (a -> b) -> Func b
   map: (fn) => Func((...args) => fn(f(...args)))
 })
-const Nothing = {
-  map: (fn) => Nothing
-}
 
 assert.deepEqual(
   Func(a => a+4)
