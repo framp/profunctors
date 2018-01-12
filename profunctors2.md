@@ -132,7 +132,7 @@ const Auto = step => ({
 })
 
 const times2 = Auto(a => [times2, a*2])
-assert.equal(times2.step(1), 2)
+assert.equal(times2.step(1)[1], 2)
 assert.equal(times2.step(1)[0].step(5), 10)
 const add3 = Auto(a => [add3, a+3])
 assert.equal(times2.compose(add3).step(1)[1], 8)
@@ -164,7 +164,7 @@ const accum = (fn, acc) => accumState((v) =>
   
 //total :: Number -> Auto Number Number 
 const total = accum((a,b)=>a+b, 0)
-assert.equal(length.step(3)[0].step(8)[1], 11)
+assert.equal(total.step(3)[0].step(8)[1], 11)
 //length :: Number -> Auto Number Number 
 const length = accum((a)=>a+1, 0)
 assert.equal(length.step(3)[0].step(8)[1], 2)
