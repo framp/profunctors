@@ -1,2 +1,2 @@
-# monads
-a friendly talk about monads in JS
+# profunctors
+a friendly talk about profunctors in JS
